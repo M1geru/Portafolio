@@ -1,0 +1,27 @@
+{
+  "dependencies": {
+    "gsap": "^3.13.0",
+    "howler": "^2.2.4",
+    "three": "^0.176.0",
+    "vite": "^6.3.4"
+  },
+  "name": "portafolio",
+  "version": "1.0.0",
+  "main": "Script.js",
+  "devDependencies": {
+    "css-loader": "^7.1.2",
+    "sass": "^1.89.2",
+    "sass-loader": "^16.0.5",
+    "style-loader": "^4.0.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "sass": "sass --watch Style.scss:Style.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

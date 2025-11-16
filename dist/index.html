@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three.js Example</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <source src="media/music/cyber-sonata-239849.mp3" type="audio/mpeg">
+    <link rel="icon" href="media/image/favicon.ico" type="image/x-icon">
+  <script type="module" crossorigin src="/assets/index-Cz2Dh_JR.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-DcVVs9cg.css">
+</head>
+<body>
+
+    <div id="loading-screen" class="loading-screen">
+        <button id="load-button" class="load-button">
+            Cargando...
+        </button>
+        <p class="desktop-instructions instructions">usa el click izquierdo y derecho para moverte</p>
+        <p class="mobile-instructions instructions"></p>
+        <p class="instructions">Click para iniciar</p>
+    </div>
+
+<div id="modals" class="modals">
+  
+  <div class="exit-button-svg">
+    <img src="/assets/close-C4UYiIY3.png" alt="Cerrar" class="modal-exit-button">
+  </div>
+  <div id="about" class="about">
+    <div class="work-title_A">
+      <h1 id="work-title_A">About Me</h1>
+      
+    </div>
+   <div class="window">
+   <div class="window-content">
+     <div class="about-board">
+       <div class="board-grid">
+         <figure class="polaroid p1">
+           <img src="media/image/gusto1.jpg" alt="Foto 1">
+           <figcaption>Creatividad y forma</figcaption>
+         </figure>
+         <div class="postit note1">Miguel Angel Rojas Reyes.<br> <br>Ingeniero Multimedia enfocado en el diseño y desarrollo de contenidos digitales inmersivos y experiencias interactivas.</div>
+         <figure class="polaroid p2 small">
+           <img src="media/image/gusto2.jpg" alt="Foto 2">
+         </figure>
+         <figure class="polaroid p3 small">
+           <img src="media/image/gusto1.jpg" alt="Foto 3">
+         </figure>
+        
+         <div class="postit note2">Disfruto trabajar todo lo relacionado con el 3d y cinematografia   </div>
+          <figure class="polaroid p4">
+           <img src="media/image/gusto2.jpg" alt="Foto 4">
+           <figcaption>Modelado 3D</figcaption>
+         </figure>
+         <div class="postit note3"> Soy una persona bastante amistosa y analitica  <br><br>  Con una amor por la tecnologia, animacion y videojuegos </div>
+         <figure class="polaroid p5 tiny">
+           <img src="media/image/gusto1.jpg" alt="Foto 5">
+         </figure>
+          <div class="postit note4">Creditos: <br> <br> -Bruno Simon's and Rachel Wei's Room Portfolios <br> -Sooahs-room-folio</div>
+       </div>
+     </div>
+   </div>
+
+  </div>
+    </div>
+  <div id="work" class="work">
+    
+
+ 
+    <div class="work-title">
+      <h1 id="work-title"></h1>
+      
+    </div>
+    <div class="folder-separators">
+     <div alt="Animación" class="folder-tab" data-section="animacion"><img src="/assets/container_1-bAAnxirA.png" alt=""><div class="text_sup">Animation</div></div>
+      <div alt="3D" class="folder-tab" data-section="3d"><img src="/assets/container_1-bAAnxirA.png" alt=""><div class="text_sup">3D</div></div>
+      <div alt="Shorts" class="folder-tab" data-section="shorts"><img src="/assets/container_1-bAAnxirA.png" alt=""><div class="text_sup">Shorts</div></div>
+      <div alt="Web" class="folder-tab" data-section="web"><img src="/assets/container_1-bAAnxirA.png" alt=""><div class="text_sup">Web</div></div>
+      <div alt="Videojuegos" class="folder-tab" data-section="videojuegos"><img src="/assets/container_1-bAAnxirA.png" alt=""><div class="text_sup">Games</div></div>
+
+    </div>
+     <div class="folder-content" id="folder-content">
+      <h1>Portafolio</h1>
+      <div class="section-body" id="section-front">
+         <div alt="Folder" class="folder-image"></div>
+      </div>
+      <div class="section-body" id="section-animacion" style="display: none;">
+        <div class="reel">
+          <video class="reel-video" controls preload="metadata">
+            <source src="media/video/reel.mp4" type="video/mp4">
+            Tu navegador no soporta video HTML5.
+          </video>
+        </div>
+        
+        <div class="container-proyects">
+           <h2 class="work-subtitle">Proyects</h2>
+           <div class="container card" data-modal="modal-animacion-1">
+             <div class="card-thumb"></div>
+             <h3>Character Animation</h3>
+             <p>Lip Sync Animation</p>
+           </div>
+           <div class="container card" data-modal="modal-3d-1">
+             <div class="card-thumb"></div>
+             <h3>Fight Scene</h3>
+             <p>Coreografía</p>
+           </div>
+           <div class="container card" data-modal="modal-ori">
+             <div class="card-thumb"></div>
+             <h3>Ori</h3>
+             <p>Basic animation</p>
+           </div>
+        </div>
+      </div>
+      <div class="section-body" id="section-3d" style="display:none;">
+        <div class="reel">
+          <video class="reel-video" controls preload="metadata">
+            <source src="media/video/reel.mp4" type="video/mp4">
+            Tu navegador no soporta video HTML5.
+          </video>
+        </div>
+       
+        <div class="container-proyects">
+           <h2 class="work-subtitle">Proyects</h2>
+           <div class="container card" data-modal="modal-tresh">
+             <div class="card-thumb"></div>
+             <h3>Tresh</h3>
+             <p>Modelado de personaje</p>
+           </div>
+           <div class="container card" data-modal="modal-bayoneta">
+             <div class="card-thumb"></div>
+             <h3>Bayoneta</h3>
+             <p>Modelado de personaje</p>
+           </div>
+           <div class="container card" data-modal="modal-luciernagas">
+             <div class="card-thumb"></div>
+             <h3>Tumba de las luciérnagas</h3>
+             <p>Efectos de partículas</p>
+           </div>
+           <div class="container card" data-modal="modal-monster">
+             <div class="card-thumb"></div>
+             <h3>Monster</h3>
+             <p>Diseño de criatura</p>
+           </div>
+        </div>
+      </div>
+      <div class="section-body" id="section-shorts" style="display:none;">
+         <div class="reel">
+          <video class="reel-video" controls preload="metadata">
+            <source src="media/video/reel.mp4" type="video/mp4">
+            Tu navegador no soporta video HTML5.
+          </video>
+        </div>
+        
+        <div class="container-proyects">
+           <h2 class="work-subtitle">Proyects</h2>
+           <div class="container card" data-modal="modal-shadow">
+             <div class="card-thumb"></div>
+             <h3>The Shadow</h3>
+             <p>Short </p>
+           </div>
+        <div class="container card" data-modal="modal-talking">
+           <div class="card-thumb"></div>
+           <h3>Talking to Killers</h3>
+           <p>Short</p>
+           </div>
+        </div>
+
+      </div>
+      <div class="section-body" id="section-web" style="display:none;">
+        <div class="reel">
+          <video class="reel-video" controls preload="metadata">
+            <source src="media/video/reel.mp4" type="video/mp4">
+            Tu navegador no soporta video HTML5.
+          </video>
+        </div>
+       
+        <div class="container-proyects">
+           <h2 class="work-subtitle">Proyects</h2>
+           <div class="container card" data-modal="modal-portfolio">
+             <div class="card-thumb"></div>
+             <h3>Portafolio Web</h3>
+             <p>Diseño y desarrollo web</p>
+           </div>
+           <div class="container card" data-modal="modal-alien">
+             <div class="card-thumb"></div>
+             <h3>Alien</h3>
+             <p>Diseño y desarrollo web</p>
+           </div>
+        </div>
+      </div>
+      <div class="section-body" id="section-videojuegos" style="display:none;">
+        <div class="reel">
+          <video class="reel-video" controls preload="metadata">
+            <source src="media/video/reel.mp4" type="video/mp4">
+            Tu navegador no soporta video HTML5.
+          </video>
+        </div>
+       
+        <div class="container-proyects">
+           <h2 class="work-subtitle">Proyects</h2>
+           <div class="container card" data-modal="modal-game1">
+             <div class="card-thumb"></div>
+             <h3>A Spirit's Tale</h3>
+             <p>Desarrollo de videojuego</p>
+           </div>
+            <div class="container card" data-modal="modal-eternal">
+            <div class="card-thumb"></div>
+            <h3>Etternal Cleaner</h3>
+            <p>Desarrollo de videojuego</p>
+           </div>
+        </div>
+      
+      </div>
+      
+   </div>
+       
+    <div alt="Folder" class="folder-image2"></div>
+
+    </div>
+  <div id="Contact" class="Contact">
+   
+    <div class="window-title"><h1 class="contact-heading">Contact</h1></div>
+     <div class="window_content">
+    <div class="window_button">
+      <div class="content-button"><img src="/assets/gmail-CYJmiYf_.png" alt=""></div>
+      <div class="content-button"><img src="/assets/link-rzTXxYoZ.png" alt=""></div>
+     <div class="content-button"><img src="/assets/tel-BKxGuTF9.png" alt=""></div>
+    </div>
+    </div>
+    </div>
+  <div id="CV" class="CV"> 
+    <div class="window-header">
+            <h1 class="Title"> Curriculum Vitae</h1>
+        </div>
+    <div class="window">
+      
+     
+      <div class="window-content">
+          <img src="/assets/CV_MARR_001-5rK4bBIE.jpg" alt="" class="cv">
+           <img src="/assets/CV_MARR_002-uql34baM.jpg" alt="" class="cv-2">
+           <img src="briefcase.png" alt="" class="briefcase-icon">
+        </div>
+
+      </div>
+    </div>
+  
+</div>
+
+<!-- Project Modals -->
+<div id="project-modals">
+  <!-- Character Animation -->
+  <div id="modal-animacion-1" class="project-modal">
+    <div class="modal-window-title">
+      <h1>Character Animation</h1>
+      <img src="/assets/back-CkfhzF1i.png" alt="Close" class="close-modal">
+    </div>
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="modal-media">
+          <div class="slideshow-container">
+            <!-- Slides -->
+            <div class="slide active">
+              <img src="/assets/char1-D0YNhIXE.jpg" alt="Character Animation 1">
+            </div>
+            <div class="slide">
+              <img src="/assets/char1-D0YNhIXE.jpg" alt="Character Animation 2">
+            </div>
+            <div class="slide">
+              <img src="/assets/char1-D0YNhIXE.jpg" alt="Character Animation 3">
+            </div>
+            <!-- Indicators -->
+            <div class="slide-indicators">
+              <span class="indicator active" data-slide="0"></span>
+              <span class="indicator" data-slide="1"></span>
+              <span class="indicator" data-slide="2"></span>
+            </div>
+          </div>
+        </div>
+        <div class="modal-description">
+          <h3>Descripción</h3>
+          <p>Animación de personaje 3D con rigging avanzado y expresiones faciales. Este proyecto demuestra mi habilidad para crear movimientos fluidos y realistas.</p>
+          <h3>Tecnologías</h3>
+          <ul>
+            <li>Blender</li>
+            <li>Maya</li>
+            <li>Rigging avanzado</li>
+          </ul>
+          <a href="#" class="project-link">Ver Proyecto</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fight -->
+  <div id="modal-3d-1" class="project-modal">
+    <div class="modal-window-title">
+       <h1>Fight Scene</h1>
+      <img src="/assets/back-CkfhzF1i.png" alt="Close" class="close-modal">
+    </div>
+    <div class="modal-content">
+     
+      <div class="modal-body">
+        <div class="modal-media">
+          <video controls>
+            <source src="/assets/game1-CuGmnQu6.mp4" type="video/mp4">
+            Tu navegador no soporta video HTML5.
+          </video>
+        </div>
+        <div class="modal-description">
+          <h3>Descripción</h3>
+          <p>Escena de pelea con coreografía detallada y efectos visuales. Muestra mi capacidad para crear secuencias dinámicas y emocionantes.</p>
+          <h3>Tecnologías</h3>
+          <ul>
+            <li>Blender</li>
+            <li>After Effects</li>
+            <li>Simulación de física</li>
+          </ul>
+          <a href="#" class="project-link">Ver Proyecto</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tresh -->
+  <div id="modal-tresh" class="project-modal">
+    <div class="modal-window-title">
+      <h1>Tresh</h1>
+      <img src="/assets/back-CkfhzF1i.png" alt="Close" class="close-modal">
+    </div>
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="modal-media">
+          <div class="slideshow-container">
+            <!-- Slides -->
+            <div class="slide active">
+              <img src="/assets/char1-D0YNhIXE.jpg" alt="Tresh 1">
+            </div>
+            <div class="slide">
+              <img src="/assets/char1-D0YNhIXE.jpg" alt="Tresh 2">
+            </div>
+            <div class="slide">
+              <img src="/assets/char1-D0YNhIXE.jpg" alt="Tresh 3">
+            </div>
+            <!-- Indicators -->
+            <div class="slide-indicators">
+              <span class="indicator active" data-slide="0"></span>
+              <span class="indicator" data-slide="1"></span>
+              <span class="indicator" data-slide="2"></span>
+            </div>
+          </div>
+        </div>
+        <div class="modal-description">
+          <h3>Descripción</h3>
+          <p>Modelado y texturizado de personaje Tresh. Enfoque en detalles de materiales y shaders para lograr un aspecto realista.</p>
+          <h3>Tecnologías</h3>
+          <ul>
+            <li>ZBrush</li>
+            <li>Substance Painter</li>
+            <li>Marmoset Toolbag</li>
+          </ul>
+          <a href="#" class="project-link">Ver Proyecto</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bayoneta -->
+  <div id="modal-bayoneta" class="project-modal">
+    <div class="modal-window-title">
+      <h1>Bayoneta</h1>
+      <img src="/assets/back-CkfhzF1i.png" alt="Close" class="close-modal">
+    </div>
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="modal-media">
+          <img src="/assets/char1-D0YNhIXE.jpg" alt="Bayoneta">
+        </div>
+        <div class="modal-description">
+          <h3>Descripción</h3>
+          <p>Modelado y texturizado de arma con detalles de alto nivel. Enfoque en la creación de materiales metálicos y efectos de desgaste.</p>
+          <h3>Tecnologías</h3>
+          <ul>
+            <li>Maya</li>
+            <li>Substance Painter</li>
+            <li>Marmoset Toolbag</li>
+          </ul>
+          <a href="#" class="project-link">Ver Proyecto</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Luciérnagas -->
+  <div id="modal-luciernagas" class="project-modal">
+    <div class="modal-window-title">
+      <h1>Luciérnagas</h1>
+      <img src="/assets/back-CkfhzF1i.png" alt="Close" class="close-modal">
+    </div>
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="modal-media">
+          <video controls>
+            <source src="/assets/game1-CuGmnQu6.mp4" type="video/mp4">
+            Tu navegador no soporta video HTML5.
+          </video>
+        </div>
+        <div class="modal-description">
+          <h3>Descripción</h3>
+          <p>Efecto visual de luciérnagas con partículas y simulación de enjambre. Creado para una escena atmosférica y mágica.</p>
+          <h3>Tecnologías</h3>
+          <ul>
+            <li>Houdini</li>
+            <li>Redshift</li>
+            <li>Simulación de partículas</li>
+          </ul>
+          <a href="#" class="project-link">Ver Proyecto</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Monster -->
+  <div id="modal-monster" class="project-modal">
+    <div class="modal-window-title">
+      <h1>Monster</h1>
+      <img src="/assets/back-CkfhzF1i.png" alt="Close" class="close-modal">
+    </div>
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="modal-media">
+          <div class="slideshow-container">
+            <!-- Slides -->
+            <div class="slide active">
+              <img src="/assets/char1-D0YNhIXE.jpg" alt="Monster 1">
+            </div>
+            <div class="slide">
+              <img src="/assets/char1-D0YNhIXE.jpg" alt="Monster 2">
+            </div>
+            <div class="slide">
+              <img src="/assets/char1-D0YNhIXE.jpg" alt="Monster 3">
+            </div>
+            <!-- Indicators -->
+            <div class="slide-indicators">
+              <span class="indicator active" data-slide="0"></span>
+              <span class="indicator" data-slide="1"></span>
+              <span class="indicator" data-slide="2"></span>
+            </div>
+          </div>
+        </div>
+        <div class="modal-description">
+          <h3>Descripción</h3>
+          <p>Diseño y modelado de criatura con detalles anatómicos realistas. Incluye texturizado y renderizado final.</p>
+          <h3>Tecnologías</h3>
+          <ul>
+            <li>ZBrush</li>
+            <li>Mari</li>
+            <li>Arnold Render</li>
+          </ul>
+          <a href="#" class="project-link">Ver Proyecto</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- The Shadow -->
+  <div id="modal-shadow" class="project-modal">
+    <div class="modal-window-title">
+      <h1>The Shadow</h1>
+      <img src="/assets/back-CkfhzF1i.png" alt="Close" class="close-modal">
+    </div>
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="modal-media">
+          <video controls>
+            <source src="/assets/game1-CuGmnQu6.mp4" type="video/mp4">
+            Tu navegador no soporta video HTML5.
+          </video>
+        </div>
+        <div class="modal-description">
+          <h3>Descripción</h3>
+          <p>Corto animado con iluminación y sombras estilizadas. Enfoque en la narrativa visual y la atmósfera.</p>
+          <h3>Tecnologías</h3>
+          <ul>
+            <li>Blender</li>
+            <li>After Effects</li>
+            <li>Composición</li>
+          </ul>
+          <a href="#" class="project-link">Ver Proyecto</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Portafolio -->
+  <div id="modal-portfolio" class="project-modal">
+    <div class="modal-window-title">
+      <h1>Portafolio Web</h1>
+      <img src="/assets/back-CkfhzF1i.png" alt="Close" class="close-modal">
+    </div>
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="modal-media">
+          <div class="slideshow-container">
+            <!-- Slides -->
+            <div class="slide active">
+              <img src="/assets/char1-D0YNhIXE.jpg" alt="Portfolio 1">
+            </div>
+            <div class="slide">
+              <img src="/assets/char1-D0YNhIXE.jpg" alt="Portfolio 2">
+            </div>
+            <div class="slide">
+              <img src="/assets/char1-D0YNhIXE.jpg" alt="Portfolio 3">
+            </div>
+            <!-- Indicators -->
+            <div class="slide-indicators">
+              <span class="indicator active" data-slide="0"></span>
+              <span class="indicator" data-slide="1"></span>
+              <span class="indicator" data-slide="2"></span>
+            </div>
+          </div>
+        </div>
+        <div class="modal-description">
+          <h3>Descripción</h3>
+          <p>Diseño y desarrollo de este sitio web de portafolio. Interfaz interactiva con elementos 3D integrados.</p>
+          <h3>Tecnologías</h3>
+          <ul>
+            <li>HTML5/CSS3</li>
+            <li>JavaScript</li>
+            <li>Three.js</li>
+          </ul>
+          <a href="#" class="project-link">Ver Proyecto</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Alien -->
+  <div id="modal-alien" class="project-modal">
+    <div class="modal-window-title">
+      <h1>Alien</h1>
+      <img src="/assets/back-CkfhzF1i.png" alt="Close" class="close-modal">
+    </div>
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="modal-media">
+          <div class="slideshow-container">
+            <!-- Slides -->
+            <div class="slide active">
+              <img src="/assets/char1-D0YNhIXE.jpg" alt="Alien Project 1">
+            </div>
+            <div class="slide">
+              <img src="/assets/char1-D0YNhIXE.jpg" alt="Alien Project 2">
+            </div>
+            <div class="slide">
+              <img src="/assets/char1-D0YNhIXE.jpg" alt="Alien Project 3">
+            </div>
+            <!-- Indicators -->
+            <div class="slide-indicators">
+              <span class="indicator active" data-slide="0"></span>
+              <span class="indicator" data-slide="1"></span>
+              <span class="indicator" data-slide="2"></span>
+            </div>
+          </div>
+        </div>
+        <div class="modal-description">
+          <h3>Descripción</h3>
+          <p>Diseño y desarrollo de un sitio web con temática de Alien. Interfaz interactiva y experiencia de usuario inmersiva.</p>
+          <h3>Tecnologías</h3>
+          <ul>
+            <li>HTML5/CSS3</li>
+            <li>JavaScript</li>
+            <li>Three.js</li>
+          </ul>
+          <a href="#" class="project-link">Ver Proyecto</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Game 1 -->
+  <div id="modal-game1" class="project-modal">
+    <div class="modal-window-title">
+      <h1>Juego 3D</h1>
+      <img src="/assets/back-CkfhzF1i.png" alt="Close" class="close-modal">
+    </div>
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="modal-media">
+          <video controls>
+            <source src="/assets/game1-CuGmnQu6.mp4" type="video/mp4">
+            Tu navegador no soporta video HTML5.
+          </video>
+        </div>
+        <div class="modal-description">
+          <h3>Descripción</h3>
+          <p>Desarrollo de un videojuego 3D con mecánicas únicas y diseño de niveles. Incluye personajes jugables y IA de enemigos.</p>
+          <h3>Tecnologías</h3>
+          <ul>
+            <li>Unity</li>
+            <li>C#</li>
+            <li>Blender</li>
+          </ul>
+          <a href="#" class="project-link">Jugar Demo</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Ori -->
+  <div id="modal-ori" class="project-modal">
+    <div class="modal-window-title">
+      <h1>Ori</h1>
+      <img src="/assets/back-CkfhzF1i.png" alt="Close" class="close-modal">
+    </div>
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="modal-media">
+          <video controls>
+            <source src="/assets/game1-CuGmnQu6.mp4" type="video/mp4">
+            Tu navegador no soporta video HTML5.
+          </video>
+        </div>
+        <div class="modal-description">
+          <h3>Descripción</h3>
+          <p>Animación básica del personaje Ori. Enfoque en movimientos fluidos y naturales.</p>
+          <h3>Tecnologías</h3>
+          <ul>
+            <li>Blender</li>
+            <li>After Effects</li>
+            <li>Animación 2D/3D</li>
+          </ul>
+          <a href="#" class="project-link">Ver Proyecto</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Talking to Killers -->
+  <div id="modal-talking" class="project-modal">
+    <div class="modal-window-title">
+      <h1>Talking to Killers</h1>
+      <img src="/assets/back-CkfhzF1i.png" alt="Close" class="close-modal">
+    </div>
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="modal-media">
+          <video controls>
+            <source src="/assets/game1-CuGmnQu6.mp4" type="video/mp4">
+            Tu navegador no soporta video HTML5.
+          </video>
+        </div>
+        <div class="modal-description">
+          <h3>Descripción</h3>
+          <p>Corto animado con narrativa intensa y dramática. Explora temas psicológicos through visual storytelling.</p>
+          <h3>Tecnologías</h3>
+          <ul>
+            <li>Blender</li>
+            <li>After Effects</li>
+            <li>Composición digital</li>
+          </ul>
+          <a href="#" class="project-link">Ver Proyecto</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Etternal Cleaner -->
+  <div id="modal-eternal" class="project-modal">
+    <div class="modal-window-title">
+      <h1>Etternal Cleaner</h1>
+      <img src="/assets/back-CkfhzF1i.png" alt="Close" class="close-modal">
+    </div>
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="modal-media">
+          <video controls>
+            <source src="/assets/game1-CuGmnQu6.mp4" type="video/mp4">
+            Tu navegador no soporta video HTML5.
+          </video>
+        </div>
+        <div class="modal-description">
+          <h3>Descripción</h3>
+          <p>Videojuego de acción y puzzles con mecánicas únicas de limpieza y combate.</p>
+          <h3>Tecnologías</h3>
+          <ul>
+            <li>Unity</li>
+            <li>C#</li>
+            <li>Blender</li>
+          </ul>
+          <a href="#" class="project-link">Jugar Demo</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="overlay"></div>
+ 
+    <button class="button-music">
+            <img src="/assets/sound-OTzg1nkR.png"  alt="Music Icon" class="music-on-icon">
+            <img src="/assets/off_sound-CrvVATYP.png" alt="Close Icon" class="music-off-icon">
+      
+       </button>
+ 
+
+<div id="experience">
+        <canvas id="experience-canvas" class="experience-canvas"></canvas>
+  </div>
+<script src="js/modals.js"></script>
+</body>
+</html>
