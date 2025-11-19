@@ -191,7 +191,7 @@ body {
   z-index: 3;
   border-radius: 12px;
   overflow-y: auto; 
-  background-image: url('table.png');
+  background-image: url('/public/table.png');
   background-size: 100% 100%;       // 🔥 ocupa todo el espacio visible
   background-position: center ;  // centra la imagen
   background-repeat: no-repeat; // evita repeticiones
@@ -255,7 +255,7 @@ body {
 }
 
 .Animacion {
-  background-image: url('assets/animacion.png');
+  background-image: url('/public/assets/animacion.png');
   background: rgb(173, 25, 25);
   color: black;
   margin: 10px #92D5FF;
@@ -349,7 +349,7 @@ body {
   }
   
   .modal-content {
-    background: url('table.png') center/cover no-repeat;
+    background: url('/public/table.png') center/cover no-repeat;
     background-size: 100% 100%;
     border-radius: 0 0 12px 12px;
     width: 90%;
@@ -574,7 +574,7 @@ body {
   position: absolute;
   width: 25px;
   height: 25px;
-  background: url('pin.png') no-repeat center/contain; /* opcional: chincheta */
+  background: url('/public/pin.png') no-repeat center/contain; /* opcional: chincheta */
   top: -10px;
   left: 45%;
 }
@@ -606,7 +606,7 @@ body {
   position: absolute;
   width: 30px;
   height: 30px;
-  background: url('tape.png') no-repeat center/contain; /* opcional: cinta adhesiva */
+  background: url('/public/tape.png') no-repeat center/contain; /* opcional: cinta adhesiva */
   top: -15px;
   left: 40%;
   opacity: 0.8;
@@ -722,7 +722,7 @@ object-fit: contain;  /* hace que se adapte sin deformarse */
   //padding: 10px;              /* Quita padding interno */
     text-align: center;
   
-  background-image: url('back_work1.png');
+  background-image: url('/public/back_work1.png');
   background-size: contain;
   background-position: center top;
   background-repeat: repeat;
@@ -972,7 +972,7 @@ object-fit: contain;  /* hace que se adapte sin deformarse */
   gap: 16px;
   justify-content: center;
   align-items: center;
-  background-image: url('table.png');
+  background-image: url('/public/table.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: 80% 80%;
@@ -1099,7 +1099,7 @@ object-fit: contain;  /* hace que se adapte sin deformarse */
   transform: translate(-50%, -50%);
   width: min(90%, 900px);
   height: min(70%, 600px);
-  background-image: url('table.png');
+  background-image: url('/public/table.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100% 100%;

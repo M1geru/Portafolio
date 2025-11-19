@@ -14,7 +14,7 @@ const sizes = {
 
 const BACKGROUND_MUSIC_VOLUME = 0.1; // Volumen entre 0.0 y 1.0
 const backgroundMusic = new Howl({
-  src: ["media/music/nier.mp3"],
+  src: ["/media/music/nier.mp3"],
   loop: true,
   volume: BACKGROUND_MUSIC_VOLUME,
 });
@@ -602,16 +602,16 @@ let videoElements2 = [];
 // Listas de videos para cada pantalla
 const videoFiles1 = [
   
-  'videos/tresh.webm',
-  'videos/edit.webm',
-  'videos/code_page_1.webm',
+  '/videos/tresh.webm',
+  '/videos/edit.webm',
+  '/videos/code_page_1.webm',
   // Agrega más videos para la pantalla 1 si es necesario
 ];
 
 const videoFiles2 = [
-  'videos/alien.webm',
-  'videos/model_2.webm',
-  'videos/code_page.webm',
+  '/videos/alien.webm',
+  '/videos/model_2.webm',
+  '/videos/code_page.webm',
   // Agrega más videos para la pantalla 2 si es necesario
 ];
 
@@ -801,7 +801,7 @@ function startTextureAnimation() {
 
 // Cuando cargues el modelo, puedes asignar el material:
 loader.load(
-  'porta.gltf',
+  '/public/porta.gltf',
   function (gltf) {
     const model = gltf.scene;
     model.visible = false;
