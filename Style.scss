@@ -197,7 +197,7 @@ body {
   background-repeat: no-repeat; // evita repeticiones
    transition: background-position 0.2s ease-out;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
- 
+  display: none;
 
 
 }
@@ -743,6 +743,23 @@ object-fit: contain;  /* hace que se adapte sin deformarse */
     justify-content: center;
     align-items: center;
   }
+  
+  /* Estilos móviles para content-button general */
+  @media (max-width: 768px) {
+    .content-button {
+      pointer-events: auto;
+      touch-action: manipulation;
+      cursor: pointer;
+      position: relative;
+      z-index: 10;
+      min-width: 60px;
+      min-height: 60px;
+    }
+    
+    .content-button:active {
+      transform: scale(0.95);
+    }
+  }
   .modal-media {
   flex: 1;
   display: flex;
@@ -843,6 +860,50 @@ object-fit: contain;  /* hace que se adapte sin deformarse */
 .folder-separators .folder-tab {
   width: 160px;
   height: 80px;
+}
+
+/* Estilos específicos para móviles - Folder separators */
+@media (max-width: 768px) {
+  .folder-separators {
+    width: 120px;
+    gap: 20px;
+  }
+  
+  .folder-separators .folder-tab {
+    width: 120px;
+    height: 60px;
+    pointer-events: auto;
+    touch-action: manipulation;
+    cursor: pointer;
+    position: relative;
+    z-index: 15;
+  }
+  
+  .folder-separators .folder-tab:active {
+    transform: scale(0.95);
+  }
+}
+
+@media (max-width: 480px) {
+  .folder-separators {
+    width: 100px;
+    gap: 15px;
+    left: 4%;
+  }
+  
+  .folder-separators .folder-tab {
+    width: 100px;
+    height: 50px;
+    pointer-events: auto;
+    touch-action: manipulation;
+    cursor: pointer;
+    position: relative;
+    z-index: 15;
+  }
+  
+  .folder-separators .folder-tab:active {
+    transform: scale(0.95);
+  }
 }
 .container {
   width: 100%;
@@ -1014,26 +1075,30 @@ object-fit: contain;  /* hace que se adapte sin deformarse */
 }
 
 
-.work-title #work-title {
+.work-title #work-section-title {
   font-family: "Anton", sans-serif;
   font-size: 90px;
   color: #ffeb00;
   text-shadow: 2px 2px 0 #603000, 4px 4px 8px rgba(0,0,0,0.5);
 }
-.work-title_A {
+.about-t {
+  display: flex;
   position: fixed;
-  top: 5%;
-  right: 17%;
-  z-index: 9;
+  h1{
+  font-family: "Anton", sans-serif;
+  font-size: 100px;
+  color:  #ffeb00;  
+  text-shadow: 10px 10px 0 #0b001b, 4px 4px 8px rgba(0,0,0,0.5);
+  position: fixed;
+  top: 6%;
+  left: -15%;
+  width: 100%;
   text-align: right;
+  margin: 0;
   pointer-events: none;
 }
-.work-title_A #work-title_A {
-  font-family: "Anton", sans-serif;
-  font-size: 90px;
-  color: #ffeb00;
-  text-shadow: 2px 2px 0 #603000, 4px 4px 8px rgba(0,0,0,0.5);
 }
+
 
 /* ======================= CONTACT OVERRIDES ======================= */
 .Contact .window-title {
@@ -1091,6 +1156,45 @@ object-fit: contain;  /* hace que se adapte sin deformarse */
 }
 .Contact .window_button .content-button:hover img {
   filter: drop-shadow(0 14px 28px rgba(0,0,0,0.35));
+}
+
+/* Estilos específicos para móviles - Botones de contacto */
+@media (max-width: 768px) {
+  .Contact .window_button {
+    gap: 20px;
+    padding: 0 20px;
+  }
+  
+  .Contact .window_button .content-button {
+    width: 80px;
+    height: 80px;
+    pointer-events: auto;
+    touch-action: manipulation;
+    cursor: pointer;
+    z-index: 1005;
+    position: relative;
+  }
+  
+  .Contact .window_button .content-button:active {
+    transform: scale(0.95);
+  }
+}
+
+@media (max-width: 480px) {
+  .Contact .window_button {
+    gap: 16px;
+    padding: 0 16px;
+  }
+  
+  .Contact .window_button .content-button {
+    width: 60px;
+    height: 60px;
+    pointer-events: auto;
+    touch-action: manipulation;
+    cursor: pointer;
+    z-index: 1005;
+    position: relative;
+  }
 }
 .Contact .window_content {
   position: absolute;

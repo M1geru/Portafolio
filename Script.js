@@ -59,7 +59,7 @@ scene.add( light2 );
 
 
 // UI update for title and background when switching sections
-const workTitleEl = document.getElementById('work-title');
+const workTitleEl = document.getElementById('work-section-title');
 const portfolioTitleEl = document.querySelector('.folder-content h1');
 
 const sectionMeta = {
@@ -81,6 +81,21 @@ document.querySelectorAll('.folder-tab').forEach((tab) => {
     const section = tab.getAttribute('data-section');
     updateWorkUI(section);
   });
+  
+  // Añadir eventos táctiles para móviles
+  tab.addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    tab.style.transform = 'scale(0.95)';
+  }, { passive: false });
+  
+  tab.addEventListener('touchend', (e) => {
+    e.preventDefault();
+    tab.style.transform = '';
+    
+    // Ejecutar la misma acción que el clic
+    const section = tab.getAttribute('data-section');
+    updateWorkUI(section);
+  }, { passive: false });
 });
 
 
@@ -266,6 +281,40 @@ document.querySelectorAll('.folder-tab').forEach(tab => {
       folderContent.scrollTop = 0;
     }
   });
+
+  // Añadir eventos táctiles para móviles
+  tab.addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    tab.style.transform = 'scale(0.95)';
+  }, { passive: false });
+  
+  tab.addEventListener('touchend', (e) => {
+    e.preventDefault();
+    tab.style.transform = '';
+    
+    // Ejecutar la misma acción que el clic
+    const section = tab.getAttribute('data-section');
+    document.querySelectorAll('.section-body').forEach(body => {
+      body.style.display = 'none';
+    });
+    const targetSection = document.getElementById('section-' + section);
+    if (targetSection) {
+      targetSection.style.display = 'block';
+      // reset scroll of the activated section
+      targetSection.scrollTop = 0;
+    }
+    document.querySelectorAll('.folder-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    // Hide the big "Portafolio" title once a tab is selected
+    if (portfolioTitleEl) {
+      portfolioTitleEl.style.display = 'none';
+    }
+    // reset scroll of the folder content container as well
+    const folderContent = document.getElementById('folder-content');
+    if (folderContent) {
+      folderContent.scrollTop = 0;
+    }
+  }, { passive: false });
 });
 
 
@@ -957,6 +1006,39 @@ function initContactButtons() {
         window.open(action, '_blank', 'noopener,noreferrer');
       }
     });
+    
+    // Añadir eventos táctiles para móviles
+    button.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      button.style.transform = 'scale(0.95)';
+    }, { passive: false });
+    
+    button.addEventListener('touchend', (e) => {
+      e.preventDefault();
+      button.style.transform = 'scale(1)';
+      
+      // Ejecutar la misma acción que el clic
+      let action;
+      
+      switch(index) {
+        case 0: // Gmail
+          const email = decryptBase64(encryptedContact.email);
+          action = `mailto:${email}`;
+          break;
+        case 1: // LinkedIn
+          const linkedin = decryptBase64(encryptedContact.linkedin);
+          action = linkedin;
+          break;
+        case 2: // WhatsApp
+          const phone = decryptBase64(encryptedContact.whatsapp);
+          action = `https://wa.me/${phone.replace(/[^\d]/g, '')}`;
+          break;
+      }
+      
+      if (action) {
+        window.open(action, '_blank', 'noopener,noreferrer');
+      }
+    }, { passive: false });
   });
 }
 
