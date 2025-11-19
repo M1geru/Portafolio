@@ -194,6 +194,7 @@ body {
   transition: background-position 0.2s ease-out;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
   display: none;
+  content-visibility: auto;
 }
 
 .about::-webkit-scrollbar {
@@ -352,6 +353,7 @@ body {
   transform: translateY(20px);
   transition: transform 0.3s ease;
   position: fixed;
+  content-visibility: auto;
   top: 12%;
 }
 .project-modal .modal-content::before {
@@ -692,6 +694,7 @@ body {
   overflow: hidden;
   z-index: 7;
   border-radius: 8px;
+  content-visibility: auto;
 }
 
 .window_button {
@@ -988,6 +991,7 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: 80% 80%;
+  content-visibility: auto;
 }
 
 .container-proyects > .work-subtitle {
@@ -1161,6 +1165,7 @@ body {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
   z-index: 4; /* under buttons, over modal base */
   overflow: hidden;
+  content-visibility: auto;
 }
 
 .folder-imag {

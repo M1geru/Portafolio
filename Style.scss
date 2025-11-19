@@ -198,6 +198,7 @@ body {
    transition: background-position 0.2s ease-out;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
   display: none;
+  content-visibility: auto;
 
 
 }
@@ -359,6 +360,7 @@ body {
     transform: translateY(20px);
     transition: transform 0.3s ease;
     position: fixed;
+    content-visibility: auto;
    // margin: 40px auto 20px;
    // padding-top: 20px;
     top: 12%;
@@ -731,6 +733,7 @@ object-fit: contain;  /* hace que se adapte sin deformarse */
   //padding: 40px 40px 40px 200px; // espacio para la barra izquierda
   z-index: 7;
   border-radius: 8px;
+  content-visibility: auto;
  
 }
 
@@ -1037,6 +1040,7 @@ object-fit: contain;  /* hace que se adapte sin deformarse */
   background-repeat: no-repeat;
   background-position: center;
   background-size: 80% 80%;
+  content-visibility: auto;
 }
 
 .container-proyects > .work-subtitle {
@@ -1211,6 +1215,7 @@ object-fit: contain;  /* hace que se adapte sin deformarse */
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
   z-index: 4; /* under buttons, over modal base */
   overflow: hidden;
+  content-visibility: auto;
 }
 
 .folder-imag{
