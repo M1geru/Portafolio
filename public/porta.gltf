@@ -3813,87 +3813,87 @@
 		{
 			"mimeType":"image/png",
 			"name":"camara_Base_color",
-			"uri":"Texturas_P/camara_Base_color.png"
+			"uri":"camara_Base_color.png"
 		},
 		{
 			"mimeType":"image/png",
 			"name":"detalles_Base_color",
-			"uri":"Texturas_P/detalles_Base_color.png"
+			"uri":"detalles_Base_color.png"
 		},
 		{
 			"mimeType":"image/png",
 			"name":"maderaT_Base_color",
-			"uri":"Texturas_P/maderaT_Base_color.png"
+			"uri":"maderaT_Base_color.png"
 		},
 		{
 			"mimeType":"image/png",
 			"name":"libro_Base_color",
-			"uri":"Texturas_P/libro_Base_color.png"
+			"uri":"libro_Base_color.png"
 		},
 		{
 			"mimeType":"image/png",
 			"name":"MesaT_Base_color",
-			"uri":"Texturas_P/MesaT_Base_color.png"
+			"uri":"MesaT_Base_color.png"
 		},
 		{
 			"mimeType":"image/png",
 			"name":"figure_Base_color",
-			"uri":"Texturas_P/figure_Base_color.png"
+			"uri":"figure_Base_color.png"
 		},
 		{
 			"mimeType":"image/png",
 			"name":"pc_Base_color",
-			"uri":"Texturas_P/pc_Base_color.png"
+			"uri":"pc_Base_color.png"
 		},
 		{
 			"mimeType":"image/png",
 			"name":"detalles_pantalla_Base_color",
-			"uri":"Texturas_P/detalles_pantalla_Base_color.png"
+			"uri":"detalles_pantalla_Base_color.png"
 		},
 		{
 			"mimeType":"image/png",
 			"name":"Pantalla_1_Base_color",
-			"uri":"Texturas_P/Pantalla_1_Base_color.png"
+			"uri":"Pantalla_1_Base_color.png"
 		},
 		{
 			"mimeType":"image/png",
 			"name":"Pantalla_2_Base_color",
-			"uri":"Texturas_P/Pantalla_2_Base_color.png"
+			"uri":"Pantalla_2_Base_color.png"
 		},
 		{
 			"mimeType":"image/png",
 			"name":"piso_Base_color",
-			"uri":"Texturas_P/piso_Base_color.png"
+			"uri":"piso_Base_color.png"
 		},
 		{
 			"mimeType":"image/png",
 			"name":"plant_Base_color",
-			"uri":"Texturas_P/plant_Base_color.png"
+			"uri":"plant_Base_color.png"
 		},
 		{
 			"mimeType":"image/png",
 			"name":"Base_Redes_Base_color",
-			"uri":"Texturas_P/Base_Redes_Base_color.png"
+			"uri":"Base_Redes_Base_color.png"
 		},
 		{
 			"mimeType":"image/png",
 			"name":"Imagenes_Base_color",
-			"uri":"Texturas_P/Imagenes_Base_color.png"
+			"uri":"Imagenes_Base_color.png"
 		},
 		{
 			"mimeType":"image/png",
 			"name":"Palabras_Base_color",
-			"uri":"Texturas_P/Palabras_Base_color.png"
+			"uri":"Palabras_Base_color.png"
 		},
 		{
 			"mimeType":"image/png",
 			"name":"pared_Base_color",
-			"uri":"Texturas_P/pared_Base_color.png"
+			"uri":"pared_Base_color.png"
 		},
 		{
 			"mimeType":"image/png",
 			"name":"sillaT_Base_color",
-			"uri":"Texturas_P/sillaT_Base_color.png"
+			"uri":"sillaT_Base_color.png"
 		}
 	],
 	"accessors":[
