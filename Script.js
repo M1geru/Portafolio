@@ -801,7 +801,7 @@ function startTextureAnimation() {
 
 // Cuando cargues el modelo, puedes asignar el material:
 loader.load(
-  '/public/porta.gltf',
+  '/porta.gltf',
   function (gltf) {
     const model = gltf.scene;
     model.visible = false;
