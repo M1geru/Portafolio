@@ -721,24 +721,6 @@ function updateVideoTextures() {
   }
 }
 
-function loadTexture(path) {
-  const textureLoader = new THREE.TextureLoader();
-  const texture = textureLoader.load(path, 
-    // onLoad callback
-    (texture) => {
-      texture.encoding = THREE.sRGBEncoding;
-      texture.flipY = false;
-      return texture;
-    },
-    // onProgress callback
-    undefined,
-    // onError callback
-    (error) => {
-      console.error('Error al cargar la textura:', path, error);
-    }
-  );
-  return texture;
-}
 
 // Configurar la reproducción de videos para ambas pantallas
 function setupVideoPlayback() {
