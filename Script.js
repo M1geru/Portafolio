@@ -245,7 +245,7 @@ function startMusicOnFirstInteraction() {
   if (!musicStarted && backgroundMusic) {
     backgroundMusic.play();
     musicStarted = true;
-    console.log('Música iniciada');
+
   }
 }
 
@@ -253,6 +253,7 @@ function startMusicOnFirstInteraction() {
 document.addEventListener('click', startMusicOnFirstInteraction, { once: true });
 document.addEventListener('touchstart', startMusicOnFirstInteraction, { once: true });
 document.addEventListener('keydown', startMusicOnFirstInteraction, { once: true });
+
 
 
 /* -----------------------------------folder proyects ----------------------------------- */
@@ -395,6 +396,38 @@ function hideModal() {
 let touchHappened = false;
 let isModalOpen = false;
 
+
+function setupCvTouchOpen() {
+  const links = document.querySelectorAll('.CV .window-content a[href$=\'.pdf\']');
+  if (!links.length) return;
+
+  links.forEach((a) => {
+
+    let openedFromTouch = false;
+
+    a.addEventListener('touchstart', (e) => {
+      openedFromTouch = true;
+      try { window.open(a.href, '_blank', 'noopener,noreferrer'); } catch (err) {}
+      e.preventDefault();
+      e.stopPropagation();
+    }, { passive: false });
+
+    a.addEventListener('click', (e) => {
+      if (openedFromTouch) {
+        openedFromTouch = false;
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    });
+  });
+}
+
+if (document.readyState !== 'loading') {
+  setupCvTouchOpen();
+} else {
+  document.addEventListener('DOMContentLoaded', setupCvTouchOpen);
+}
+
 const loadingScreen=document.querySelector(".loading-screen");
 const loadingScreenButton = document.querySelector(".load-button");
 
@@ -426,10 +459,10 @@ manager.onLoad = function()  {
 
   loadingScreenButton.addEventListener("mouseenter", () => {
     loadingScreenButton.style.transform = "scale(1.3)";
-      console.log("me entro");
+   
   });
 
-  loadingScreenButton.addEventListener("touchend", (e) => {console.log("me tocas");
+  loadingScreenButton.addEventListener("touchend", (e) => {
     touchHappened = true;
     e.preventDefault();
     handleEnter();
@@ -440,7 +473,7 @@ manager.onLoad = function()  {
     handleEnter();
   });
 
-  loadingScreenButton.addEventListener("mouseleave", () => {console.log("me voy");
+  loadingScreenButton.addEventListener("mouseleave", () => {
     loadingScreenButton.style.transform = "none";
   });
 };
@@ -474,12 +507,12 @@ function playReveal() {
 }
 
 function playIntroAnimation() {
-  // Encuentra el modelo en la escena (asumiendo que solo hay uno o que es el último añadido)
+
   const model = scene.children.find(obj => obj.type === "Group" || obj.type === "Mesh");
 
   if (!model) return;
   loadedModel.visible = true;
-  // Si el modelo es un grupo, recorre sus hijos
+
   if (model.type === "Group") {
     model.traverse(child => {
       if (child.isMesh) {
@@ -491,17 +524,16 @@ function playIntroAnimation() {
   }
 }
 
-// Función para animar un mesh desde escala 0 hasta su escala original
+
 function animateMeshScale(child) {
-  // Guarda la escala original
+
   if (!child.userData.originalScale) {
     child.userData.originalScale = child.scale.clone();
   }
 
-  // Coloca el mesh en escala 0
+
   child.scale.set(0, 0, 0);
 
-  // Anima hacia la escala original with ease "back"
   gsap.to(child.scale, {
     x: child.userData.originalScale.x,
     y: child.userData.originalScale.y,
@@ -523,32 +555,26 @@ controls.minPolarAngle = 0;
 controls.maxPolarAngle = Math.PI / 2;
 controls.minAzimuthAngle = 0;
 controls.maxAzimuthAngle = Math.PI / 2;
-
 controls.enableDamping = true;
 controls.dampingFactor = 0.05;
-
-// Limitaciones para el paneo (botón derecho)
 controls.enablePan = true;
 
-// Definir límites de paneo personalizados
 const minPan = new THREE.Vector3(-5, 0, -5);
 const maxPan = new THREE.Vector3(5, 5, 5);
 
-// Guardar el método update original
 const originalUpdate = controls.update;
 
-// Sobrescribir el método update para aplicar límites suaves
+
 controls.update = function() {
-  // Llamar al update original primero
+
   originalUpdate.call(this);
   
-  // Aplicar límites suaves solo si está cerca de los bordes
+
   const clampedTarget = this.target.clone().clamp(minPan, maxPan);
   
-  // Solo interpolar si hay una diferencia significativa
   const distance = this.target.distanceTo(clampedTarget);
-  if (distance > 0.01) { // Solo si la diferencia es mayor a 0.01
-    this.target.lerp(clampedTarget, 0.05); // Velocidad más lenta
+  if (distance > 0.01) { 
+    this.target.lerp(clampedTarget, 0.05); 
   }
 };
 
@@ -807,7 +833,7 @@ function setupVideoPlayback() {
     playNextVideo(2);
   }
   
-  // Actualizar texturas
+
   updateVideoTextures();
 }
 
@@ -819,15 +845,7 @@ function startTextureAnimation() {
   
   // Configurar la reproducción de videos
   setupVideoPlayback();
-  
-  // Iniciar los primeros videos si no están ya reproduciéndose
-  if (videoElements1[0] && videoElements1[0].paused) {
-    videoElements1[0].play().catch(e => console.error('Error al iniciar video 1:', e));
-  }
-  
-  if (videoElements2[0] && videoElements2[0].paused) {
-    videoElements2[0].play().catch(e => console.error('Error al iniciar video 2:', e));
-  }
+
 }
 
 // Cuando cargues el modelo, puedes asignar el material:
@@ -853,7 +871,7 @@ loader.load(
     function findScreenMaterials() {
       model.traverse((child) => {
         if (child.isMesh) {
-          // Verificar si el nombre del objeto o su material coincide con lo que buscamos
+  
           if (!screen1Material && (child.name.includes('Pantalla_1') || child.name.includes('pantalla1') || child.name.includes('screen1') || 
                                  (child.material && (child.material.name.includes('Pantalla_1') || child.material.name.includes('pantalla1'))))) {
             screen1Material = Array.isArray(child.material) ? child.material[0] : child.material;
@@ -867,12 +885,12 @@ loader.load(
       });
     }
     
-    // Buscar materiales por primera vez
+
     findScreenMaterials();
     
-    // Si no se encontraron, intentar con nombres alternativos
+
     if (!screen1Material || !screen2Material) {
-      // Intentar con mayúsculas/minúsculas diferentes
+
       model.traverse((child) => {
         if (child.isMesh) {
           if (!screen1Material && child.name.toLowerCase().includes('pantalla')) {
@@ -881,7 +899,7 @@ loader.load(
         }
       });
       
-      // Si aún no se encontraron, asignar los primeros materiales que encontremos
+ 
       if (!screen1Material || !screen2Material) {
         model.traverse((child) => {
           if (child.isMesh) {
@@ -892,24 +910,24 @@ loader.load(
             }
           }
           
-          // Si ya tenemos ambos materiales, detener la búsqueda
+    
           if (screen1Material && screen2Material) return;
         });
       }
     }
     
-    // Iniciar la animación si encontramos al menos un material
+ 
     if (screen1Material || screen2Material) {
       startTextureAnimation();
     } else {
       console.error('No se pudieron encontrar los materiales de las pantallas');
     }
-    //model.scale.set(2, 2, 2); // Ajusta la escala del modelo  
+
    
   },
   
   function (xhr) {
-    console.log((xhr.loaded / xhr.total * 100) + '% loaded'); // Progreso de carga
+    console.log((xhr.loaded / xhr.total * 100) + '% loaded'); 
   },
   function (error) {
     console.error('An error occurred while loading the model:', error);
@@ -917,26 +935,23 @@ loader.load(
 );
 
 
-
-
-// Información de contacto cifrada (Base64) para evitar spam
 const encryptedContact = {
   email: 'aWcubWlndWVscm9qYXNAZ21haWwuY29t', 
   linkedin: 'aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL21pZ3VlbC1hbmdlbC1yLXIv', 
   whatsapp: 'KzU3MzE2NDUyMTkwMw==' 
 };
 
-// Función para descifrar Base64
+
 function decryptBase64(encoded) {
   return atob(encoded);
 }
 
-// Función para inicializar eventos de contacto
+
 function initContactButtons() {
   const contactButtons = document.querySelectorAll('.window_button .content-button');
   
   contactButtons.forEach((button, index) => {
-    // Agregar tooltips
+ 
     const tooltip = document.createElement('div');
     tooltip.style.cssText = `
       position: absolute;
@@ -953,17 +968,17 @@ function initContactButtons() {
     `;
     document.body.appendChild(tooltip);
     
-    // Mostrar tooltip al pasar el mouse
+   
     button.addEventListener('mouseenter', () => {
       let text;
       switch(index) {
-        case 0: // Gmail
+        case 0: 
           text = 'Gmail';
           break;
-        case 1: // LinkedIn
+        case 1:
           text = 'LinkedIn';
           break;
-        case 2: // WhatsApp
+        case 2: 
           text = 'Whatsapp';
           break;
       }
@@ -978,25 +993,25 @@ function initContactButtons() {
       }
     });
     
-    // Ocultar tooltip al salir
+
     button.addEventListener('mouseleave', () => {
       tooltip.style.opacity = '0';
     });
     
-    // Click action
+
     button.addEventListener('click', () => {
       let action;
       
       switch(index) {
-        case 0: // Gmail
+        case 0: 
           const email = decryptBase64(encryptedContact.email);
           action = `mailto:${email}`;
           break;
-        case 1: // LinkedIn
+        case 1: 
           const linkedin = decryptBase64(encryptedContact.linkedin);
           action = linkedin;
           break;
-        case 2: // WhatsApp
+        case 2: 
           const phone = decryptBase64(encryptedContact.whatsapp);
           action = `https://wa.me/${phone.replace(/[^\d]/g, '')}`;
           break;
@@ -1007,7 +1022,7 @@ function initContactButtons() {
       }
     });
     
-    // Añadir eventos táctiles para móviles
+
     button.addEventListener('touchstart', (e) => {
       e.preventDefault();
       button.style.transform = 'scale(0.95)';
@@ -1016,20 +1031,18 @@ function initContactButtons() {
     button.addEventListener('touchend', (e) => {
       e.preventDefault();
       button.style.transform = 'scale(1)';
-      
-      // Ejecutar la misma acción que el clic
       let action;
       
       switch(index) {
-        case 0: // Gmail
+        case 0: 
           const email = decryptBase64(encryptedContact.email);
           action = `mailto:${email}`;
           break;
-        case 1: // LinkedIn
+        case 1:
           const linkedin = decryptBase64(encryptedContact.linkedin);
           action = linkedin;
           break;
-        case 2: // WhatsApp
+        case 2: 
           const phone = decryptBase64(encryptedContact.whatsapp);
           action = `https://wa.me/${phone.replace(/[^\d]/g, '')}`;
           break;
@@ -1296,7 +1309,7 @@ render();
 let lastRaycastTime = 0;
 function throttledOver() {
   const now = performance.now();
-  if (now - lastRaycastTime > 30) { // 30 ms = ~33 veces por segundo
+  if (now - lastRaycastTime > 30) { 
     over();
     lastRaycastTime = now;
   }

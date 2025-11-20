@@ -1,3 +1,13 @@
+// ==============================
+// SECCIONES (Guía rápida)
+// - Ventana: Modals Overlay
+// - Ventana: CV
+// - Ventana: About
+// - Ventanas: Contact & Work
+// - Componentes: Window Title, Folder Separators, Exit Button, Music Button
+// - Ventana: Project Modals
+// - Sección: About Board Content
+// ==============================
 @mixin centered {
   display: flex;
   justify-content: center;
@@ -5,6 +15,17 @@
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+
+// SCSS variables (safe optimization)
+$font-title: "Anton", sans-serif;
+$font-body: "Archivo Black", sans-serif;
+$color-accent: #ffeb00;
+$color-shadow-brown: #603000;
+$color-note: #fffecf;
+$color-highlight: #ffcc00;
+$font-family-postit: "Comic Sans MS", cursive, sans-serif;
+$bp-md: 768px;
+$bp-sm: 480px;
 
 * {
   margin: 0;
@@ -73,8 +94,7 @@ body {
   }*/
 }
 
-
- 
+// === VENTANA: MODALS ===
 .modals {
   height: 100%;
   width: 100%;
@@ -90,6 +110,7 @@ body {
   -webkit-backdrop-filter: blur(4px);
 }
 
+// === VENTANA: CV ===
 .CV{  
   @include centered;
   position: fixed;
@@ -107,33 +128,31 @@ body {
 
 .CV .window-content img {
   transition: transform 0.25s ease;
-  position: relative;
+  
 }
 
 .CV .window-content img.cv,
 .CV .window-content img.cv-2 {
-  position: absolute;
+  position: fixed;
   left: 50%;
   top: 50%;
   transform-origin: center;
-  /* Asegura que las imágenes no capturen eventos de clic fuera de sus límites */
-  pointer-events: auto;
-  /* Mejora la experiencia de usuario al pasar el cursor */
+
   cursor: pointer;
 }
 
 .CV .window-content img.cv {
   transform: translate(-50%, -50%) rotate(15deg);
   z-index: 2;
-  /* Asegura que el hover solo funcione cuando el cursor está sobre la imagen */
-  pointer-events: auto;
+
+
 }
 
 .CV .window-content img.cv-2 {
   transform: translate(-50%, -50%) rotate(-15deg);
   z-index: 1;
-  /* Asegura que el hover solo funcione cuando el cursor está sobre la imagen */
-  pointer-events: auto;
+
+
 }
 
 .CV .window-content img.cv:hover {
@@ -150,23 +169,25 @@ body {
   width: 100%;
   height: 100%;
   padding: 16px;
-  /* Permite que los clics pasen a través del contenido */
-  pointer-events: none;
-  
-  /* Los elementos hijos ahora heredarán pointer-events: none, 
-     así que necesitamos reactivarlo solo para las imágenes */
-  img {
-    pointer-events: auto;
-  }
+
 }
 
 .CV .window-content img.cv,
 .CV .window-content img.cv-2 {
-  height: clamp(180px, 65vh, 420px);
+  height: clamp(180px, 65vh, 820px);
   width: auto;
   object-fit: contain;
   filter: drop-shadow(0 8px 16px rgba(0,0,0,0.25));
 }
+
+@media (max-width: 768px) {
+    .CV .window-content img.cv,
+    .CV .window-content img.cv-2 {
+      height: clamp(130px, 40vh, 700px);
+    }
+    
+ 
+  }
 
 .CV .window-content img.briefcase-icon {
   position: absolute;
@@ -181,6 +202,7 @@ body {
   pointer-events: none;
 }
 
+// === VENTANA: ABOUT ===
 .about {
   @include centered;
   position: relative;
@@ -198,7 +220,7 @@ body {
    transition: background-position 0.2s ease-out;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
   display: none;
-  content-visibility: auto;
+ 
 
 
 }
@@ -228,6 +250,7 @@ body {
   background: #5f3300;
 }
 
+// === VENTANAS: CONTACT & WORK ===
 .Contact,
 .work{
   @include centered;
@@ -278,6 +301,7 @@ body {
 
 }
 
+// === VENTANA: PROJECT MODALS ===
 /* Project Modals */
 .project-modal {
   display: none;
@@ -313,8 +337,8 @@ body {
     pointer-events: none; // Allow clicks to pass through to elements below
     
     h1 {
-      color: #ffeb00;
-      font-family: "Anton", sans-serif;
+      color: $color-accent;
+      font-family: $font-title;
       font-size: 60px;
       margin: 0;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
@@ -361,6 +385,7 @@ body {
     transition: transform 0.3s ease;
     position: fixed;
     content-visibility: auto;
+    contain-intrinsic-size: 900px 600px;
    // margin: 40px auto 20px;
    // padding-top: 20px;
     top: 12%;
@@ -414,8 +439,8 @@ body {
         color: #000000;
         
         h3 {
-          font-family: "Anton", sans-serif;
-          color: #ffeb00;
+          font-family: $font-title;
+          color: $color-accent;
           margin: 20px 0 -20px;
           font-size: 25px;
           padding-bottom: 5px;
@@ -423,12 +448,12 @@ body {
         }
        
         p {
-          font-family: "Archivo Black", sans-serif;
-          background: #fffecf;
+          font-family: $font-body;
+          background: $color-note;
           padding: 15px 15px 15px 45px;
           border-radius: 8px;
-          border-bottom: 3px solid #ffcc00;
-          border-right: 4px solid #ffcc00;
+          border-bottom: 3px solid $color-highlight;
+          border-right: 4px solid $color-highlight;
           position: relative;
           margin: 10px 0 20px;
           box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
@@ -445,11 +470,11 @@ body {
         }
         
         ul {
-          background:  #fffecf;
+          background:  $color-note;
           padding: 15px 15px 15px 25px;
           border-radius: 8px;
-          border-bottom: 3px solid #ffcc00;
-          border-right: 4px solid #ffcc00;
+          border-bottom: 3px solid $color-highlight;
+          border-right: 4px solid $color-highlight;
           margin: 10px 0 20px;
           box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
           list-style: none;
@@ -461,7 +486,7 @@ body {
             
             &::before {
               content: '•';
-              color: #ffcc00;
+              color: $color-highlight;
               position: absolute;
               left: 0;
               font-size: 20px;
@@ -598,7 +623,7 @@ body {
   box-shadow: 3px 6px 8px rgba(0,0,0,0.2);
   transform: rotate(2deg);
   border-radius: 6px;
-  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-family: $font-family-postit;
   color: #333;
   position: relative;
 }
@@ -622,7 +647,7 @@ body {
 }
 
 .folder-tab {
-  font-family: "Anton", sans-serif;
+  font-family: $font-title;
   font-size: 40px;
   flex: 1 1 20%;                /* ✅ Ocupa 30% del ancho, pero se adapta */
  text-align: center;
@@ -653,6 +678,7 @@ body {
   font-weight: bold;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
+// === COMPONENTE: WINDOW TITLE BAR ===
 .window-title{
   display: flex;
   position: fixed;
@@ -734,6 +760,7 @@ object-fit: contain;  /* hace que se adapte sin deformarse */
   z-index: 7;
   border-radius: 8px;
   content-visibility: auto;
+  contain-intrinsic-size: 600px 400px;
  
 }
 
@@ -850,6 +877,7 @@ object-fit: contain;  /* hace que se adapte sin deformarse */
   transform: scale(1.1);
 }
 
+// === COMPONENTE: FOLDER SEPARATORS ===
 .folder-separators {
   display: flex;
   flex-direction: column;
@@ -865,49 +893,9 @@ object-fit: contain;  /* hace que se adapte sin deformarse */
   height: 80px;
 }
 
-/* Estilos específicos para móviles - Folder separators */
-@media (max-width: 768px) {
-  .folder-separators {
-    width: 120px;
-    gap: 20px;
-  }
-  
-  .folder-separators .folder-tab {
-    width: 120px;
-    height: 60px;
-    pointer-events: auto;
-    touch-action: manipulation;
-    cursor: pointer;
-    position: relative;
-    z-index: 15;
-  }
-  
-  .folder-separators .folder-tab:active {
-    transform: scale(0.95);
-  }
-}
 
-@media (max-width: 480px) {
-  .folder-separators {
-    width: 100px;
-    gap: 15px;
-    left: 4%;
-  }
-  
-  .folder-separators .folder-tab {
-    width: 100px;
-    height: 50px;
-    pointer-events: auto;
-    touch-action: manipulation;
-    cursor: pointer;
-    position: relative;
-    z-index: 15;
-  }
-  
-  .folder-separators .folder-tab:active {
-    transform: scale(0.95);
-  }
-}
+
+
 .container {
   width: 100%;
   height: 100%;
@@ -942,13 +930,13 @@ object-fit: contain;  /* hace que se adapte sin deformarse */
   line-height: 1.2;
   text-align: center;
   color: #000000;
-  font-family: "Archivo Black", sans-serif;
+  font-family: $font-body;
 }
 .container.card p {
   color: #000000;
   margin: 0;
   font-size: 12px;
-  font-family: "Archivo Black", sans-serif;
+  font-family: $font-body;
 }
 .section-body {
   display: block;
@@ -1041,16 +1029,17 @@ object-fit: contain;  /* hace que se adapte sin deformarse */
   background-position: center;
   background-size: 80% 80%;
   content-visibility: auto;
+  contain-intrinsic-size: 800px 400px;
 }
 
 .container-proyects > .work-subtitle {
   position: absolute;
   top: 40px;
   right: 18px;
-  font-family: "Anton", sans-serif;
+  font-family: $font-title;
   font-size: 55px;
-  color: #ffeb00;
-  text-shadow: 2px 2px 0 #603000, 4px 4px 8px rgba(0,0,0,0.5);
+  color: $color-accent;
+  text-shadow: 2px 2px 0 $color-shadow-brown, 4px 4px 8px rgba(0,0,0,0.5);
   pointer-events: none;
 }
 
@@ -1064,7 +1053,7 @@ object-fit: contain;  /* hace que se adapte sin deformarse */
   pointer-events: none;
 }
 .folder-content h1{
-  font-family: "Anton", sans-serif;
+  font-family: $font-title;
   font-size: 220px;
   color: hsl(55, 75%, 49%);
   transform: translate(-50%, -50%) rotate(-25deg);
@@ -1080,18 +1069,20 @@ object-fit: contain;  /* hace que se adapte sin deformarse */
 
 
 .work-title #work-section-title {
-  font-family: "Anton", sans-serif;
+  font-family: $font-title;
   font-size: 90px;
-  color: #ffeb00;
-  text-shadow: 2px 2px 0 #603000, 4px 4px 8px rgba(0,0,0,0.5);
+  color: $color-accent;
+  text-shadow: 2px 2px 0 $color-shadow-brown, 4px 4px 8px rgba(0,0,0,0.5);
 }
 .about-t {
   display: flex;
   position: fixed;
+  z-index: 6;
+  pointer-events: none;
   h1{
-  font-family: "Anton", sans-serif;
+  font-family: $font-title;
   font-size: 100px;
-  color:  #ffeb00;  
+  color:  $color-accent;  
   text-shadow: 10px 10px 0 #0b001b, 4px 4px 8px rgba(0,0,0,0.5);
   position: fixed;
   top: 6%;
@@ -1120,10 +1111,10 @@ object-fit: contain;  /* hace que se adapte sin deformarse */
     flex-direction: row-reverse;/* no bloquea clics al fondo */
 }
 .Contact .contact-heading {
-  font-family: "Anton", sans-serif;
+  font-family: $font-title;
   font-size: clamp(100px, 6vw, 72px);
-  color: #ffeb00;
-  text-shadow: 2px 2px 0 #603000, 4px 4px 8px rgba(0,0,0,0.5);
+  color: $color-accent;
+  text-shadow: 2px 2px 0 $color-shadow-brown, 4px 4px 8px rgba(0,0,0,0.5);
   margin: 0;
 }
 
@@ -1216,6 +1207,7 @@ object-fit: contain;  /* hace que se adapte sin deformarse */
   z-index: 4; /* under buttons, over modal base */
   overflow: hidden;
   content-visibility: auto;
+  contain-intrinsic-size: 900px 600px;
 }
 
 .folder-imag{
@@ -1231,9 +1223,6 @@ object-fit: contain;  /* hace que se adapte sin deformarse */
   border-radius: 10px 10px 4px 4px; /* opcional, bordes redondeados */
 }
 
-
-
-   
 
 .load-button {
   font-family: "Motley Forces";
@@ -1270,6 +1259,7 @@ object-fit: contain;  /* hace que se adapte sin deformarse */
   }
 }
 
+// === COMPONENTE: EXIT BUTTON ===
 /* Ensure exit button anchors correctly within common containers */
 .about .exit-button-svg,
 .work .exit-button-svg,
@@ -1327,6 +1317,7 @@ object-fit: contain;  /* hace que se adapte sin deformarse */
 }
 
 
+// === COMPONENTE: MUSIC BUTTON ===
 .button-music {
   @include centered;
   position: fixed;
@@ -1401,7 +1392,7 @@ object-fit: contain;  /* hace que se adapte sin deformarse */
 
 /* ======================= ABOUT BOARD (solo afecta About) ======================= */
 #about .window .window-content {
-  position: relative !important;
+  //position: relative !important;
   z-index: 4;
   width: 100%;
   height: 100%;
@@ -1591,6 +1582,7 @@ object-fit: contain;  /* hace que se adapte sin deformarse */
     hyphens: auto;
     width: 100%;
     max-width: 300px;
+    font-family: $font-family-postit;
   }
   
   .polaroid {
@@ -1613,4 +1605,34 @@ object-fit: contain;  /* hace que se adapte sin deformarse */
   }
 }
 
-
+/* === MOBILE TITLES (<= $bp-md) === */
+@media (max-width: $bp-md) {
+  /* About title */
+  .about .about-t h1 {
+    font-family: $font-title;
+    font-size: clamp(36px, 10vw, 52px);
+    top: 5%;
+    left: -8%;
+  }
+  /* Work window title */
+  .work-title #work-section-title {
+    font-size: clamp(36px, 9vw, 56px);
+  
+  }
+  .work-title {
+       top: 9%;
+    left: -8%;
+  }
+  /* Contact window title */
+  .Contact .contact-heading {
+    font-size: clamp(36px, 9vw, 56px);
+  }
+  /* CV title inside header */
+  .CV .window-header .Title {
+    font-size: clamp(32px, 8vw, 48px);
+  }
+  /* Modal window titles */
+  .project-modal .modal-window-title h1 {
+    font-size: clamp(24px, 7vw, 40px);
+  }
+}

@@ -102,33 +102,25 @@ body {
 
 .CV .window-content img {
   transition: transform 0.25s ease;
-  position: relative;
 }
 
 .CV .window-content img.cv,
 .CV .window-content img.cv-2 {
-  position: absolute;
+  position: fixed;
   left: 50%;
   top: 50%;
   transform-origin: center;
-  /* Asegura que las imágenes no capturen eventos de clic fuera de sus límites */
-  pointer-events: auto;
-  /* Mejora la experiencia de usuario al pasar el cursor */
   cursor: pointer;
 }
 
 .CV .window-content img.cv {
   transform: translate(-50%, -50%) rotate(15deg);
   z-index: 2;
-  /* Asegura que el hover solo funcione cuando el cursor está sobre la imagen */
-  pointer-events: auto;
 }
 
 .CV .window-content img.cv-2 {
   transform: translate(-50%, -50%) rotate(-15deg);
   z-index: 1;
-  /* Asegura que el hover solo funcione cuando el cursor está sobre la imagen */
-  pointer-events: auto;
 }
 
 .CV .window-content img.cv:hover {
@@ -145,23 +137,22 @@ body {
   width: 100%;
   height: 100%;
   padding: 16px;
-  /* Permite que los clics pasen a través del contenido */
-  pointer-events: none;
-  /* Los elementos hijos ahora heredarán pointer-events: none, 
-     así que necesitamos reactivarlo solo para las imágenes */
-}
-.CV .window-content img {
-  pointer-events: auto;
 }
 
 .CV .window-content img.cv,
 .CV .window-content img.cv-2 {
-  height: clamp(180px, 65vh, 420px);
+  height: clamp(180px, 65vh, 820px);
   width: auto;
   object-fit: contain;
   filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.25));
 }
 
+@media (max-width: 768px) {
+  .CV .window-content img.cv,
+  .CV .window-content img.cv-2 {
+    height: clamp(130px, 40vh, 700px);
+  }
+}
 .CV .window-content img.briefcase-icon {
   position: absolute;
   right: 12px;
@@ -194,7 +185,6 @@ body {
   transition: background-position 0.2s ease-out;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
   display: none;
-  content-visibility: auto;
 }
 
 .about::-webkit-scrollbar {
@@ -354,6 +344,7 @@ body {
   transition: transform 0.3s ease;
   position: fixed;
   content-visibility: auto;
+  contain-intrinsic-size: 900px 600px;
   top: 12%;
 }
 .project-modal .modal-content::before {
@@ -695,6 +686,7 @@ body {
   z-index: 7;
   border-radius: 8px;
   content-visibility: auto;
+  contain-intrinsic-size: 600px 400px;
 }
 
 .window_button {
@@ -816,44 +808,6 @@ body {
   height: 80px;
 }
 
-/* Estilos específicos para móviles - Folder separators */
-@media (max-width: 768px) {
-  .folder-separators {
-    width: 120px;
-    gap: 20px;
-  }
-  .folder-separators .folder-tab {
-    width: 120px;
-    height: 60px;
-    pointer-events: auto;
-    touch-action: manipulation;
-    cursor: pointer;
-    position: relative;
-    z-index: 15;
-  }
-  .folder-separators .folder-tab:active {
-    transform: scale(0.95);
-  }
-}
-@media (max-width: 480px) {
-  .folder-separators {
-    width: 100px;
-    gap: 15px;
-    left: 4%;
-  }
-  .folder-separators .folder-tab {
-    width: 100px;
-    height: 50px;
-    pointer-events: auto;
-    touch-action: manipulation;
-    cursor: pointer;
-    position: relative;
-    z-index: 15;
-  }
-  .folder-separators .folder-tab:active {
-    transform: scale(0.95);
-  }
-}
 .container {
   width: 100%;
   height: 100%;
@@ -992,6 +946,7 @@ body {
   background-position: center;
   background-size: 80% 80%;
   content-visibility: auto;
+  contain-intrinsic-size: 800px 400px;
 }
 
 .container-proyects > .work-subtitle {
@@ -1040,6 +995,8 @@ body {
 .about-t {
   display: flex;
   position: fixed;
+  z-index: 6;
+  pointer-events: none;
 }
 .about-t h1 {
   font-family: "Anton", sans-serif;
@@ -1166,6 +1123,7 @@ body {
   z-index: 4; /* under buttons, over modal base */
   overflow: hidden;
   content-visibility: auto;
+  contain-intrinsic-size: 900px 600px;
 }
 
 .folder-imag {
@@ -1343,7 +1301,6 @@ body {
 
 /* ======================= ABOUT BOARD (solo afecta About) ======================= */
 #about .window .window-content {
-  position: relative !important;
   z-index: 4;
   width: 100%;
   height: 100%;
@@ -1605,6 +1562,7 @@ body {
     hyphens: auto;
     width: 100%;
     max-width: 300px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
   }
   .polaroid {
     width: 180px;
@@ -1620,6 +1578,36 @@ body {
     grid-row: unset !important;
     justify-self: unset;
     align-self: unset;
+  }
+}
+/* === MOBILE TITLES (<= $bp-md) === */
+@media (max-width: 768px) {
+  /* About title */
+  .about .about-t h1 {
+    font-family: "Anton", sans-serif;
+    font-size: clamp(36px, 10vw, 52px);
+    top: 5%;
+    left: -8%;
+  }
+  /* Work window title */
+  .work-title #work-section-title {
+    font-size: clamp(36px, 9vw, 56px);
+  }
+  .work-title {
+    top: 9%;
+    left: -8%;
+  }
+  /* Contact window title */
+  .Contact .contact-heading {
+    font-size: clamp(36px, 9vw, 56px);
+  }
+  /* CV title inside header */
+  .CV .window-header .Title {
+    font-size: clamp(32px, 8vw, 48px);
+  }
+  /* Modal window titles */
+  .project-modal .modal-window-title h1 {
+    font-size: clamp(24px, 7vw, 40px);
   }
 }
 
