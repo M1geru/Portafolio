@@ -1059,7 +1059,7 @@ function initContactButtons() {
 document.addEventListener('DOMContentLoaded', initContactButtons);
 
 const socialLinks = {
-  red_1: "https://github.com/andrewwoan/sooahkimsfolio",
+  red_1: "https://github.com/M1geru/Portafolio",
   red_2: "https://www.linkedin.com/in/miguel-angel-r-r/",
   Red_4: "https://sketchfab.com/Miguel-R",
 };
