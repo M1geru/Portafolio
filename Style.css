@@ -192,12 +192,12 @@ body {
 }
 
 .about::-webkit-scrollbar-thumb {
-  background-color: #999;
+  background-color: #e78709;
   border-radius: 4px;
 }
 
 .about::-webkit-scrollbar-track {
-  background: #eee;
+  background: #5f3300;
 }
 
 ::-webkit-scrollbar {
@@ -989,7 +989,7 @@ body {
   font-family: "Anton", sans-serif;
   font-size: 90px;
   color: #ffeb00;
-  text-shadow: 2px 2px 0 #603000, 4px 4px 8px rgba(0, 0, 0, 0.5);
+  text-shadow: rgb(11, 0, 27) 10px 10px 0px, rgba(0, 0, 0, 0.5) 4px 4px 8px;
 }
 
 .about-t {
@@ -1031,7 +1031,7 @@ body {
   font-family: "Anton", sans-serif;
   font-size: clamp(100px, 6vw, 72px);
   color: #ffeb00;
-  text-shadow: 2px 2px 0 #603000, 4px 4px 8px rgba(0, 0, 0, 0.5);
+  text-shadow: rgb(11, 0, 27) 10px 10px 0px, rgba(0, 0, 0, 0.5) 4px 4px 8px;
   margin: 0;
 }
 
@@ -1203,7 +1203,7 @@ body {
   font-family: "Anton", sans-serif;
   font-size: clamp(70px, 4vw, 48px);
   color: #f0ec0e;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  text-shadow: rgb(11, 0, 27) 10px 10px 0px, rgba(0, 0, 0, 0.5) 4px 4px 8px;
 }
 
 /* CV content (consolidated above): removed duplicate flex layout and briefcase rules */
@@ -1375,7 +1375,7 @@ body {
   grid-column: 1/span 1;
   grid-row: 1/span 1;
   transform: rotate(4deg);
-  width: 70%;
+  width: 58%;
   height: 90%;
   top: 15%;
   border-radius: 10px;
@@ -1413,9 +1413,9 @@ body {
   grid-row: 2/span 1;
   transform: rotate(3deg);
   z-index: 4;
-  height: 45%;
+  height: 60%;
   width: 20%;
-  top: 50%;
+  top: -3%;
   right: 0%;
   transform: rotate(-20deg);
   border-radius: 10px;
@@ -1466,7 +1466,7 @@ body {
 .note1 {
   grid-column: 2/span 1;
   grid-row: 1/span 1;
-  height: 70%;
+  height: 54%;
   width: 100%;
   top: 20%;
   max-width: min(400px, 100%);
@@ -1519,6 +1519,9 @@ body {
     padding: 1rem;
     align-items: center;
   }
+  .board-grid .postit {
+    max-height: 220px !important;
+  }
   .postit {
     padding: 12px 16px;
     font-size: 14px;
@@ -1544,40 +1547,66 @@ body {
     align-self: unset;
   }
 }
-@media (max-width: 480px) {
-  .board-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    padding: 0.5rem;
-    align-items: center;
+@media (max-width: 1920px) {
+  .polaroid {
+    width: 100%;
+    height: 100%;
   }
+  .p1 {
+    width: 180px;
+    height: 250px;
+  }
+  .p2 {
+    height: 150px;
+    width: 140px;
+  }
+  .p3 {
+    height: 150px;
+    width: 140px;
+  }
+  .p4 {
+    height: 150px;
+    width: 140px;
+  }
+  .p5 {
+    height: 150px;
+    width: 140px;
+  }
+}
+@media (max-width: 1358px) {
   .postit {
-    padding: 10px 14px;
-    font-size: 13px;
-    line-height: 1.4;
-    max-width: 100%;
+    padding: 12px 16px;
+    font-size: 14px;
+    min-height: auto;
     word-wrap: break-word;
     overflow-wrap: break-word;
     hyphens: auto;
-    width: 100%;
-    max-width: 300px;
-    font-family: "Comic Sans MS", cursive, sans-serif;
+    line-height: 1.4;
+    max-width: 400px;
   }
-  .polaroid {
-    width: 180px;
-    margin: 0 auto;
+}
+/* Activar scroll vertical cuando la altura de la ventana sea menor a 660px
+   y mantener el tamaño visual de notas y fotos */
+@media (max-height: 915px) {
+  /* La ventana About conserva su altura relativa pero permite scroll interno */
+  .about {
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
   }
-  .polaroid figcaption {
-    font-size: 12px;
+  /* Asegurar que el contenido interno tenga suficiente altura para activar scroll */
+  #about .window,
+  #about .window .window-content,
+  #about .window-content {
+    height: auto;
+    min-height: 720px; /* contenido más alto que la ventana => aparece scroll */
+    overflow: visible;
   }
-  .polaroid, .postit {
-    position: static;
-    transform: none !important;
-    grid-column: unset !important;
-    grid-row: unset !important;
-    justify-self: unset;
-    align-self: unset;
+  /* Mantener tamaño estático de notas y polaroids para esta altura */
+  .board-grid .postit {
+    font-size: 16px !important;
+    line-height: 1.45 !important;
+    padding: 16px 20px !important;
+    min-height: 220px !important;
   }
 }
 /* === MOBILE TITLES (<= $bp-md) === */

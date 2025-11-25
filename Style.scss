@@ -228,11 +228,11 @@ body {
   width: 8px;
 }
 .about::-webkit-scrollbar-thumb {
-  background-color: #999;
+  background-color: #e78709;
   border-radius: 4px;
 }
 .about::-webkit-scrollbar-track {
-  background: #eee;
+  background: #5f3300;
 }
 
 
@@ -1072,7 +1072,7 @@ object-fit: contain;  /* hace que se adapte sin deformarse */
   font-family: $font-title;
   font-size: 90px;
   color: $color-accent;
-  text-shadow: 2px 2px 0 $color-shadow-brown, 4px 4px 8px rgba(0,0,0,0.5);
+  text-shadow: rgb(11, 0, 27) 10px 10px 0px, rgba(0, 0, 0, 0.5) 4px 4px 8px;
 }
 .about-t {
   display: flex;
@@ -1114,7 +1114,7 @@ object-fit: contain;  /* hace que se adapte sin deformarse */
   font-family: $font-title;
   font-size: clamp(100px, 6vw, 72px);
   color: $color-accent;
-  text-shadow: 2px 2px 0 $color-shadow-brown, 4px 4px 8px rgba(0,0,0,0.5);
+  text-shadow: rgb(11, 0, 27) 10px 10px 0px, rgba(0, 0, 0, 0.5) 4px 4px 8px;
   margin: 0;
 }
 
@@ -1287,7 +1287,7 @@ object-fit: contain;  /* hace que se adapte sin deformarse */
   font-family: "Anton", sans-serif;
   font-size: clamp(70px, 4vw, 48px);
   color: #f0ec0e;
-  text-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  text-shadow: rgb(11, 0, 27) 10px 10px 0px, rgba(0, 0, 0, 0.5) 4px 4px 8px;
 }
 
 /* CV content (consolidated above): removed duplicate flex layout and briefcase rules */
@@ -1451,10 +1451,10 @@ object-fit: contain;  /* hace que se adapte sin deformarse */
 
 
 /* Placement matching 3x3 board */
-.p1 { grid-column: 1 / span 1; grid-row: 1 / span 1; transform: rotate(4deg); width: 70%;height: 90%; top: 15%; border-radius: 10px;}
+.p1 { grid-column: 1 / span 1; grid-row: 1 / span 1; transform: rotate(4deg); width: 58%;height: 90%; top: 15%; border-radius: 10px;}
 .p2 { grid-column: 3 / span 1; grid-row: 1/ span 1; justify-self: end; align-self: start; z-index: 2; height: 50%; width: 40%;top: 20%;right: 0%;transform: rotate(20deg); border-radius: 10px;}
 .p3 { grid-column: 3 / span 1; grid-row: 1 / span 1; justify-self: end; z-index: 3; height: 50%; width: 40%; top: 70%;right: 10%; transform: rotate(-8deg); border-radius: 10px;}
-.p4 { grid-column: 1 / span 2; grid-row: 2 / span 1; transform: rotate(3deg);z-index: 4; height: 45%; width: 20%;top: 50%;right: 0%;transform: rotate(-20deg);border-radius: 10px;}
+.p4 { grid-column: 1 / span 2; grid-row: 2 / span 1; transform: rotate(3deg);z-index: 4; height: 60%; width: 20%;top: -3%;right: 0%;transform: rotate(-20deg);border-radius: 10px;  }
 .p5 { grid-column: 3 / span 2; grid-row: 2 / span 1; transform: rotate(3deg);z-index: 5; height: 50%; width: 35%;top: 0%;right: 50%;transform: rotate(20deg);border-radius: 10px;}
 /* Notas: amarillo claro estilo post-it */
 .postit {
@@ -1486,7 +1486,7 @@ object-fit: contain;  /* hace que se adapte sin deformarse */
 .note1 { 
   grid-column: 2 / span 1; 
   grid-row: 1 / span 1;  
-  height: 70%;
+  height: 54%;
   width: clamp(100%, 90%, 120%);
   top: 20%; 
   max-width: min(400px, 100%);
@@ -1532,6 +1532,7 @@ object-fit: contain;  /* hace que se adapte sin deformarse */
     gap: 16px;
     padding: 1rem;
     align-items: center;
+     .postit {max-height: 220px !important;}
   }
   
   .postit {
@@ -1544,6 +1545,7 @@ object-fit: contain;  /* hace que se adapte sin deformarse */
     line-height: 1.4;
     width: 100%;
     max-width: 400px;
+   
   }
   
   .polaroid {
@@ -1562,48 +1564,58 @@ object-fit: contain;  /* hace que se adapte sin deformarse */
     align-self: unset;
   }
 }
-
-@media (max-width: 480px) {
-  .board-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    padding: 0.5rem;
-    align-items: center;
-  }
+@media (max-width: 1920px) {
+.polaroid {width: 100%;
+height: 100%;
+}
+.p1 { width: 180px;height: 250px;}
+.p2 { height: 150px; width: 140px;}
+.p3 { height: 150px; width: 140px;}
+.p4 { height: 150px; width: 140px;}
+.p5 { height: 150px; width: 140px;}
   
-  .postit {
-    padding: 10px 14px;
-    font-size: 13px;
-    line-height: 1.4;
-    max-width: 100%;
+}
+@media (max-width: 1358px) {
+.postit { padding: 12px 16px;
+    font-size: 14px;
+    min-height: auto;
     word-wrap: break-word;
     overflow-wrap: break-word;
     hyphens: auto;
-    width: 100%;
-    max-width: 300px;
-    font-family: $font-family-postit;
-  }
-  
-  .polaroid {
-    width: 180px;
-    margin: 0 auto;
-  }
-  
-  .polaroid figcaption {
-    font-size: 12px;
-  }
-  
-  // Reset positioning for column layout
-  .polaroid, .postit {
-    position: static;
-    transform: none !important;
-    grid-column: unset !important;
-    grid-row: unset !important;
-    justify-self: unset;
-    align-self: unset;
-  }
+    line-height: 1.4;
+    max-width: 400px;}
 }
+
+/* Activar scroll vertical cuando la altura de la ventana sea menor a 660px
+   y mantener el tamaño visual de notas y fotos */
+@media (max-height: 915px) {
+  /* La ventana About conserva su altura relativa pero permite scroll interno */
+  .about {
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Asegurar que el contenido interno tenga suficiente altura para activar scroll */
+  #about .window,
+  #about .window .window-content,
+  #about .window-content {
+    height: auto;
+    min-height: 720px; /* contenido más alto que la ventana => aparece scroll */
+    overflow: visible;
+  }
+
+  /* Mantener tamaño estático de notas y polaroids para esta altura */
+  .board-grid .postit {
+    font-size: 16px !important;
+    line-height: 1.45 !important;
+    padding: 16px 20px !important;
+    min-height: 220px !important;
+  }
+
+
+}
+
+
 
 /* === MOBILE TITLES (<= $bp-md) === */
 @media (max-width: $bp-md) {

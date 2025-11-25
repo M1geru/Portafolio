@@ -14,7 +14,7 @@ const sizes = {
 
 const BACKGROUND_MUSIC_VOLUME = 0.1; // Volumen entre 0.0 y 1.0
 const backgroundMusic = new Howl({
-  src: ["/media/music/nier.mp3"],
+  src: ["/media/music/nier1.mp3"],
   loop: true,
   volume: BACKGROUND_MUSIC_VOLUME,
 });
